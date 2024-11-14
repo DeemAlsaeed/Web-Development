@@ -1,0 +1,48 @@
+body {
+    padding-top: 100px;
+    
+  }
+
+  .cont{
+
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+    padding: 2em;
+    
+    
+ 
+    
+  }
+
+  .form {
+    margin-bottom: 12em;
+    background-color: #5f7d60b9;
+    padding: 2em;
+    position: relative;
+    z-index: 1;
+    width: 100%; /* Ensure the form takes full width of the container */
+    max-width: 551.77px; /* Adjust the maximum width as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the form vertically */
+}
+  
+  .f {
+    position: fixed;
+    bottom: 7;
+    right: 10;
+    z-index: -1;
+    font-size: 25em;
+    line-height: .6em;
+}
+  
+  button{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5f7d60;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--loading files from static folder-->
+    <script src="{% static 'javascripts/first.js' %}"></script><!--loading javascripts file from static folder-->
+    <link rel="stylesheet" href="{% static 'CSS/base.css' %}"><!--loading CSS file from static folder-->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icoTab.ico' %}"><!--loading imges file from static folder-->
+    <!--linking bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!--docu tags-->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>{% block title %}{%endblock%} | sukri&kalas</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <!--navbar brand-->
+        <a class="navbar-brand" href="{% url 'frontpage' %}">Sukri&Kalas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+       <!--navbar tabs-->
+          <ul class="navbar-nav">
+            <!--navbar dropped tab-->
+            <li class="nav-item">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item" href="{%url 'products' %}">All Products</a></li>
+                  <li><a class="dropdown-item" href="{% url 'categories' 'Pure-Dates'%}">Pure Date</a></li>
+                  <li><a class="dropdown-item" href="{% url 'categories' 'Stuffed-Dates'%}">Stuffed Dates</a></li>
+                  <li><a class="dropdown-item" href="{% url 'categories' 'Syrup-Dipped-Dates'%}">Syrup Dipped Dates </a></li>
+                </ul>
+              </li>
+            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profile
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="{%url 'update_user' %}">User Profile</a></li>
+                    <li><a class="dropdown-item" href="{%url 'update_info' %}">User Information </a></li>
+                  </ul>
+                </li>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+             </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link " href="{% url 'login' %}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{% url 'register' %}">register</a>
+              </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'yourDates' %}">Your Dates</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'aboutPage' %}">About</a>
+            </li>
+          </ul>
+          {% if not request.path == '/' and not request.path == '/register/' and not request.path == '/login/' %}
+            <ul class="navbar-nav ms-auto"> <!-- This ul contains the shop cart button -->
+              <!-- Shop cart -->
+              <form class="d-flex">
+                <a href="{% url 'cart_summary' %}">
+                  <button class="btn btn-outline-dark" type="button" >
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                     <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{cart|length}}</span>
+                  </button>
+                </a>
+              </form>
+          </ul>
+          {% endif %}
+          
+
+          
+         
+        </div>
+    </nav>
+    <!--message for registration-->
+    {%if messages %}
+      {% for message in messages %}
+      <div class="alert alert-light alert-dismissible fade show" role="alert">
+        <p>{{message}}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+    {% endif%}
+  <!--content block -->
+
+    {% block content%}
+    
+    {% endblock %}      
+</body>
+<footer class="text-center bg-body-tertiary">
+  <div class="containerf pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">     
+      <!-- Twitter -->
+      <a
+        data-mdb-ripple-init
+        class="btn btn-link btn-floating btn-lg text-body m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+      
+      <!-- Instagram -->
+      <a
+        data-mdb-ripple-init
+        class="btn btn-link btn-floating btn-lg text-body m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        data-mdb-ripple-init
+        class="btn btn-link btn-floating btn-lg text-body m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>            
+    </section>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <a class="text-body" href="https://sukri&kalas.com/">sukri&kalas.com</a>
+  </div>
+</footer>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

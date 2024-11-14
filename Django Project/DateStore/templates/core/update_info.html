@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %} 
+{%block title%}
+Profile
+{% endblock %}
+{% load static%}
+{% block content %}
+<body>
+   <link rel="stylesheet" href="{% static 'CSS/register.css' %}">
+    
+    <div class="cont">
+        <div class="form">
+            <h1>Billing Information </h1>
+        <form method="POST" action="{% url 'update_info' %}">
+                {% csrf_token%}
+
+                {{ form.as_p }}
+                <h1>Shipping Information </h1>
+                {{shipping_form.as_p}}
+
+                <button type="submit" calss="btn btn-secondary">
+                    update
+                </button>
+        </form>
+        <a id="update_password" href="{% url 'update_password'%}"> update Password</a>
+        </div>
+        <div class="f">
+            sukri&kalas sukri&kalas 
+            sukri&kalassukri&kalas
+        </div>
+    </div>
+
+</body>
+{% endblock%}

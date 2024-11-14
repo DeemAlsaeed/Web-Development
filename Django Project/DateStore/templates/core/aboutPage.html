@@ -1,0 +1,76 @@
+
+{% extends 'core/base.html' %} 
+
+{%block title%}
+about
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'CSS/aboutPage.css' %}">
+<body>
+    <div>
+    <div class="about-video">  
+        <video autoplay muted loop src="{% static 'videos/Sukri&Kalas.mp4' %}" width="100%" ></video>   
+    </div>
+    </div>
+
+    <div class="heading">
+        <h1>About Sukri&Kalas</h1>
+        <p>
+                At <strong class="name">Sukri&Kalas</strong>, we're passionate about bringing you the finest selection of dates from around the world.
+            <br>
+            Whether you're a seasoned date connoisseur or new to the world of this delectable fruit, we're here to guide you on a journey of taste and discovery.
+            <br>
+            <br>
+            Founded in 2024, <strong class="name">Sukri&Kalas</strong> was born out of a love for dates and a desire to share their incredible flavors with the world.
+            Our founder, <b style="color: #5b4a2f;">Deem</b>, grew up surrounded by date palms in  <b style="color: #5b4a2f;">AlQassim</b>, where dates were not just
+            a fruit but a way of life. Inspired by this rich heritage, <Strong class="name">Sukri&Kalas</Strong> set out to create a platform that celebrates the diversity
+            and versatility of dates.
+        </p>       
+    </div>
+    <div class="container">
+        <section class="about">    
+            <div class="about-img">
+            <img  calss="k"src="{% static 'images/about1.png' %}">
+            </div> 
+            <div class="about-content">
+                <h2>Our Mission</h2>
+                <p>
+                    At <strong class="name">Sukri&Kalas</strong>, our mission is simple: to provide you with the highest quality dates sourced directly from trusted growers and producers.
+                    We believe that every date tells a story – from the sun-kissed palm groves of the Middle East to the lush oases of North Africa.
+                    Through our curated selection,we aim to showcase the unique flavors, textures, and cultural significance of each variety.
+                </p>
+            </div>
+        </section>
+        <section class="aboutR">
+            <div class="about-content">
+                <h2>What We Offer </h2>
+                <p> Explore our extensive range of dates, including Medjool, Deglet Noor, Zahidi, and more.
+                    Whether you prefer your dates soft and chewy or firm and caramel-like, we have something to suit every palate.
+                    Discover the perfect pairing for your morning smoothie, afternoon snack, or gourmet dessert recipe.
+                </p>
+            </div>
+            <div class="about-img">
+                <img  calss="k"src="{% static 'images/about2.png' %}">
+            </div> 
+        </section>
+        <section class="about">
+            <div class="about-img">
+                <img  calss="k"src="{% static 'images/about3.png' %}">
+            </div>
+            <div class="about-content">
+                <h2>Join Our Community </h2>
+                <p> Join the <strong class="name">Sukri&Kalas</strong> community and embark on a delicious journey with us.
+                    Follow our blog for date-inspired recipes, tips for selecting and storing dates, and fascinating insights into date culture and history.
+                    Connect with us on social media to share your date adventures and be part of our growing community of date enthusiasts.
+                   
+                </p>
+            </div>
+
+        </section>
+    </div>
+</body>
+{% endblock%}

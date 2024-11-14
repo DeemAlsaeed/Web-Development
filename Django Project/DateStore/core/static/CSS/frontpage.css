@@ -1,0 +1,149 @@
+
+
+body {
+    padding-top: 90px;
+    
+
+  }
+.navbar{
+    background-color: #786548 !important;
+
+
+  }
+.containar0{
+    background-color: #786548;
+    display: flex;
+    gap:20px;
+    justify-content:space-around;
+    padding-bottom: 10vh;
+}
+.greating{
+    color: beige;
+    width: 100%;
+    padding: 2vh;
+    
+   
+}
+.greating h1{
+    font-size: 7em;
+}
+.pic{
+    width: 50%;
+    padding: 1vh;
+}
+.convert{
+    border: black solid .2em;
+}
+.convert p{
+    font-size: 4em;
+    margin-bottom: .5em; 
+}
+/* CSS for product display */
+.phraseFront{
+    padding: .5em;
+    font-size: 2em;
+}
+.bestS {
+    display: flex;
+    gap: 20px;
+    padding: 1.5em;
+    width: 100%; 
+    /* Adjust overflow property to enable scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping of products */
+}
+.bestS::-webkit-scrollbar {
+    display: none;
+}
+
+/*end pf css product {remaining inhertned from products.css}*/
+
+/**/
+.partition{
+    border: black solid .2em;
+
+}
+
+/**/
+.cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.left-side {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.right-side {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Adjust the height as needed */
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    animation: scrollImages 10s linear infinite; /* Adjust animation duration as needed */
+}
+
+.image-container img {
+    display: block;
+    margin-bottom: 10px;
+    width: 60%;
+    margin: 5% 20%;
+}
+
+@keyframes scrollImages {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -100%; /* Move images container up by 100% of its height */
+    }
+}
+
+/**/
+.phraseG{
+    background-color: #6782687c;
+    height: 20vh;
+    text-align: center;
+    align-content: center;
+    font-size: 40px;
+}
+@media (max-width: 768px) {
+    .cont{
+        flex-direction: column;
+        overflow-y: auto;
+
+    }
+    .bestS {
+        /* Allow products to wrap to the next line */
+        flex-wrap: nowrap;
+        /* Center products on smaller screens */
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .Dproduct {
+        /* Ensure each product takes full width in row layout */
+        flex: 0 0 auto;
+        /* Ensure products stack vertically on smaller screens */
+        width: 100%;
+    }
+    body {
+        padding-top: 90px;
+    }
+
+    .containar0 {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .pic {
+        width: 100%;
+    }
+}

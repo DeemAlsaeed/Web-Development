@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %} 
+{%block title%}
+Products
+{% endblock %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/products.css' %}">
+
+<body >
+    <div class="phrase">
+        <p>
+            "أكل البلح حلو.. بس النخل في العالي"
+        </p>
+        
+      </div>
+        <div class="container">
+            
+                <form action="{% url 'products' %}" class="input-group rounded">
+                    <input type="search" name="search"class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                </form>
+          
+            {% for item in products %}
+            {%if item%}
+            <div class="product">
+                <a id="productLink" href="{% url 'product' item.id %}">
+                <img src="/media/{{ item.image3 }}" alt="Product {{item.name}}">
+                <h2>{{ item.name }}</h2>
+                <p id="description">{{item.category}}</p>
+                <p>{{item.price}}SR</p>
+            </a>    
+            </div>
+            {%else%}
+            <p>Sorry no products are availabe</p>
+            {%endif%}
+           {% endfor %}
+        </div>
+</body>
+{% endblock %}

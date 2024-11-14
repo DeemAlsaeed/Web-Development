@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %} 
+{%block title%}
+{{product.name}}
+{% endblock %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/product.css' %}">
+<div class="name">
+    <h1 class="product-title">{{product.name}}</h1>
+</div>
+<div class="container">
+    <div class="left-section">
+        <img class="img-1" src="/media/{{ product.image4 }}" alt="{{product.name}}">
+        <img class="img-2" src="/media/{{ product.image2 }}"alt="Image 2">
+        <img class="img-3" src="/media/{{ product.image3 }}" alt="Image 3">
+        <img class="img-4" src="/media/{{ product.image }}" alt="Image 3">
+    </div>
+    <div class="right-section">
+        <div class="one">
+            <h1>{{product.name}}</h1>
+            <p class="product-description">{{product.description}}</p>
+            <p class="product-price">{{product.price}}SR</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-2">Quantity:</div>
+                <div class="col-md-2">
+                    <select class="form-select form-select-sm" id="qt-cart">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>     
+             <button type="button" value="{{product.id}}" id="add-to-cart">Add to Cart</button>
+           
+        </div>
+        <div class="two">
+            <br>
+            <h4>{{product.category}}:</h4>
+            {{product.category.description}}
+            <h4>Quality guidelines:</h4>
+            <ul>
+                <li> {{product.category.care}}</li>
+            </ul>
+        </div>
+    </div>
+  
+</div>
+<script>
+
+    $(document).on('click','#add-to-cart',function(e){
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'{% url 'cart_add'%}',
+            data:{
+            product_id:$('#add-to-cart').val(),
+            product_qt:$('#qt-cart option:selected').text(),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action:'post'
+            },
+
+            success:function(json){
+                //console.log(json)
+                document.getElementById('cart_quantity').textContent=json.qt
+                location.reload()
+                
+
+            },
+            error:function(xhr,errmsg,err){
+
+            },
+
+        });
+
+        })
+
+
+    
+</script>
+
+{%endblock%}

@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %} 
+{%block title%}
+Welcome
+{% endblock %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/frontpage.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/products.css' %}">
+<body >
+    <div class="containar0">
+      <div class="greating">
+        <h1>
+          Your Dates <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for <br>
+        Your Dates
+        </h1>
+        </div>
+      <div class="pic">
+        <img src="{% static 'images/Frontpage1.png' %}" alt="dates">
+      </div>
+    </div>
+
+    <div class="convert">
+      <marquee behavior="scroll" onmouseover="stop()" onmouseout="start()"> <p>Welcome to  dates heaven</p></marquee>
+    </div>
+    <div class="phraseFront">The Most Delicious Dates</div>
+    <div class="bestS">
+      {%for item in products%}
+      <div class="product">
+        <a id="productLink" href="{% url 'product' item.id %}">
+        <img src="/media/{{ item.image }}" alt="Product {{item.name}}">
+        <h2>{{ item.name }}</h2>
+        <p id="description">{{item.category}}</p>
+        <p>{{item.price}}SR</p>
+    </a>
+        
+    </div>
+      
+      
+      {%endfor%}
+      
+
+      
+  </div>
+  <div class="phraseG">
+    <p>"كن كالنخيل عن الأحقاد مرتفعاً
+      يُرمى بصخرٍ فيعطي أطيب الثمرِ "</p>
+  </div>
+
+  <div class="cont">
+    <div class="left-side">
+        <h1>Join our community</h1>
+        <h5>Share your favorite date recipes, tips, and experiences with our community!</h5>
+    </div>
+    <div class="right-side">
+        <div class="image-container">
+      {%for item in dates %}
+            <img src="/media/{{ item.image }}" alt="{{dates.caption}}">
+        {%endfor%}
+        </div>
+    </div>
+    </div>
+
+    
+
+    <div class="conta">
+      
+</body>
+
+{% endblock%}
+

@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %} 
+{%block title%}
+Products 
+{% endblock %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/products.css' %}">
+<!--for external file,but arise alot of issues so deal with it later or it's fine
+     <script type="text/javascript" src="{% static 'javascripts/cartbuttonproduct.js' %}"></script> -->
+<body >
+    <div class="phrase">
+        <h1>
+            {{category}}
+        </h1>
+        {{category}}
+      </div>
+      <div class="container">
+        {% for item in products %}
+        {%if item%}
+        <div class="product">
+            <a id="productLink" href="{% url 'product' item.id %}">
+            <img src="/media/{{ item.image }}" alt="Product {{item.name}}">
+            <h2>{{ item.name }}</h2>
+            <p id="description">{{item.category}}</p>
+            <p>{{item.price}}SR</p>
+        </a>
+        </div>
+        {%else%}
+        <p>Sorry no products are availabe</p>
+        {%endif%}
+       {% endfor %}
+    </div>
+</body>
+{% endblock %}

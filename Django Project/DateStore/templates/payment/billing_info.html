@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %} 
+{%block title%}
+Cart Summary
+{% endblock %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/cart/cart_summary.css' %}">
+<div class="name">
+    <h1 class="product-title">Billing info </h1>
+</div>
+<div class="container">
+        <div class="col-12 col-md-12 ">
+          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+            <div class="card-body p-0">
+              <div class="row g-6">
+                <div class="col-lg-6" >
+                  <div class="p-5  ">
+                    <div class="mb-4">
+                      <h1>Shipping info</h1>
+                      <table>
+                          <tr>
+                            <th>Name:</th>
+                            <th>{{shipping_info.shipping_full_name}}</th>
+                          </tr>
+                          <tr>
+                            <td> Email:</td>
+                            <td>{{shipping_info.shipping_email}}</td>
+                          </tr>
+                          <tr>
+                            <td> Address 1:</td>
+                            <td>{{shipping_info.shipping_address1}}</td>
+                          </tr>
+                          <tr>
+                              <td>Address 2:</td>
+                              <td>{{shipping_info.shipping_address2}}</td>
+                            </tr>
+                            <tr>
+                              <td> City:</td>
+                              <td>{{shipping_info.shipping_city}}</td>
+                            </tr>
+                            <tr>
+                              <td>State:</td>
+                              <td>{{shipping_info.shipping_state}}</td>
+                            </tr>
+                            <tr>
+                              <td>Zipcode:</td>
+                              <td>{{shipping_info.shipping_zipcode}}</td>
+                            </tr>
+                            <tr>
+                              <td>Country:</td>
+                              <td>{{shipping_info.shipping_country}}</td>
+                            </tr>
+                        </table>
+                  </div>
+                    <div class="pt-5 row">
+                      <h6 class="mb-1"><a href="{% url 'products' %}" class="text-body"><i
+                            class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 bg-grey">
+                  <div class="p-5">         
+                    <div class="mb-4">
+                        <h1>billing info</h1>
+                      {{billing_form.as_p}}
+                    </div>
+                    <a href="#"
+                       <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
+                      data-mdb-ripple-color="dark"> Pay now</button>
+                </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
