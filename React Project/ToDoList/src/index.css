@@ -1,0 +1,90 @@
+body{
+    font-family: Ubuntu,serif;
+    background-color: rgb(233, 227, 220);
+}
+.container {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .actionsContainer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .actionsContainer button {
+    transition-duration: 200ms;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .actionsContainer button:hover {
+    opacity: 0.7;
+  }
+  
+input , .AddButton{
+    text-align: center;
+    font-family: Ubuntu,serif;
+    border: solid black ;
+    border-radius: 2px;
+    font-size: 2rem;
+    margin-top:2rem ;
+
+}
+input{
+    width: 74rem;
+    height: 4.5rem;
+    margin-left: 2rem;
+    flex:6;
+}
+.AddButton{
+    flex:1;
+    width: 12rem;
+    height: 5rem;
+    background-color:rgb(167, 141, 112) ;
+}
+#listDiv{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-family: Playwrite GB S,Ubuntu;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .todoItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 6px;
+    border: green solid;
+  }
+  
+  .todoItem p {
+    flex: 1;
+  }
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #listDiv{
+        width: 90%;
+      }
+      input , .AddButton{
+        width: 89%;
+        font-size: 30px;
+        margin-top:0rem ;
+        margin-left: 2rem;
+    }
+    input{
+        margin-top:2rem ;
+    }
+}
